@@ -1,0 +1,423 @@
+[2025-03-16T20:04:03.896+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: frequent_flyers.insert_data scheduled__2025-03-15T00:00:00+00:00 [queued]>
+[2025-03-16T20:04:03.901+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: frequent_flyers.insert_data scheduled__2025-03-15T00:00:00+00:00 [queued]>
+[2025-03-16T20:04:03.901+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-03-16T20:04:03.907+0000] {taskinstance.py:1380} INFO - Executing <Task(PostgresOperator): insert_data> on 2025-03-15 00:00:00+00:00
+[2025-03-16T20:04:03.909+0000] {standard_task_runner.py:57} INFO - Started process 214 to run task
+[2025-03-16T20:04:03.911+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'frequent_flyers', 'insert_data', 'scheduled__2025-03-15T00:00:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/frequent_flyers.py', '--cfg-path', '/tmp/tmp3jzdlfph']
+[2025-03-16T20:04:03.912+0000] {standard_task_runner.py:85} INFO - Job 9: Subtask insert_data
+[2025-03-16T20:04:03.921+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-03-16T20:04:03.942+0000] {task_command.py:415} INFO - Running <TaskInstance: frequent_flyers.insert_data scheduled__2025-03-15T00:00:00+00:00 [running]> on host 16ae585d7ab0
+[2025-03-16T20:04:03.986+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='frequent_flyers' AIRFLOW_CTX_TASK_ID='insert_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-15T00:00:00+00:00'
+[2025-03-16T20:04:03.987+0000] {sql.py:274} INFO - Executing: 
+    WITH stats_passenger AS (
+        SELECT
+            t.passenger_id,
+            t.passenger_name,
+            COUNT(*) AS flights_number,
+            SUM(b.total_amount) AS purchase_sum
+        FROM dwh_detailed.sat_tickets t
+        JOIN dwh_detailed.hub_bookings hb 
+            ON t.book_ref = hb.book_ref
+        JOIN dwh_detailed.sat_bookings b 
+            ON hb.hub_booking_id = b.hub_booking_id
+        JOIN dwh_detailed.link_ticket_flights ltf 
+            ON t.hub_ticket_id = ltf.hub_ticket_id
+        JOIN dwh_detailed.sat_flights f 
+            ON ltf.hub_flight_id = f.hub_flight_id
+        GROUP BY t.passenger_id, t.passenger_name
+    ),
+    stats_airport AS (
+        SELECT
+            t.passenger_id,
+            f.departure_airport AS airport_code,
+            COUNT(*) AS flight_count,
+            ROW_NUMBER() OVER (PARTITION BY t.passenger_id ORDER BY COUNT(*) DESC, f.departure_airport) AS rank
+        FROM dwh_detailed.sat_tickets t
+        JOIN dwh_detailed.link_ticket_flights ltf 
+            ON t.hub_ticket_id = ltf.hub_ticket_id
+        JOIN dwh_detailed.sat_flights f 
+            ON ltf.hub_flight_id = f.hub_flight_id
+        GROUP BY t.passenger_id, f.departure_airport
+    ),
+    gmv AS (
+        SELECT
+            passenger_id,
+            purchase_sum,
+            PERCENT_RANK() OVER (ORDER BY purchase_sum DESC) AS gmv_percentile
+        FROM stats_passenger
+    )
+    DELETE FROM presentation.frequent_flyers
+    WHERE created_at < NOW() - INTERVAL '1 day';
+
+    INSERT INTO presentation.frequent_flyers (
+        passenger_id, passenger_name, flights_number, purchase_sum, home_airport, customer_group
+    )
+    SELECT
+        ps.passenger_id, 
+        ps.passenger_name, 
+        ps.flights_number, 
+        ps.purchase_sum, 
+        a.airport_code AS home_airport,
+        CASE
+            WHEN gmv_percentile <= 0.05 THEN '5'
+            WHEN gmv_percentile <= 0.1 THEN '10'
+            WHEN gmv_percentile <= 0.25 THEN '25'
+            WHEN gmv_percentile <= 0.5 THEN '50'
+            ELSE '50+'
+        END AS customer_group
+    FROM stats_passenger ps
+    LEFT JOIN stats_airport a 
+        ON ps.passenger_id = a.passenger_id AND a.rank = 1
+    LEFT JOIN gmv g 
+        ON ps.passenger_id = g.passenger_id;
+[2025-03-16T20:04:03.992+0000] {base.py:73} INFO - Using connection ID '***_dwh' for task execution.
+[2025-03-16T20:04:03.998+0000] {base.py:73} INFO - Using connection ID '***_dwh' for task execution.
+[2025-03-16T20:04:04.002+0000] {sql.py:418} INFO - Running statement: 
+    WITH stats_passenger AS (
+        SELECT
+            t.passenger_id,
+            t.passenger_name,
+            COUNT(*) AS flights_number,
+            SUM(b.total_amount) AS purchase_sum
+        FROM dwh_detailed.sat_tickets t
+        JOIN dwh_detailed.hub_bookings hb 
+            ON t.book_ref = hb.book_ref
+        JOIN dwh_detailed.sat_bookings b 
+            ON hb.hub_booking_id = b.hub_booking_id
+        JOIN dwh_detailed.link_ticket_flights ltf 
+            ON t.hub_ticket_id = ltf.hub_ticket_id
+        JOIN dwh_detailed.sat_flights f 
+            ON ltf.hub_flight_id = f.hub_flight_id
+        GROUP BY t.passenger_id, t.passenger_name
+    ),
+    stats_airport AS (
+        SELECT
+            t.passenger_id,
+            f.departure_airport AS airport_code,
+            COUNT(*) AS flight_count,
+            ROW_NUMBER() OVER (PARTITION BY t.passenger_id ORDER BY COUNT(*) DESC, f.departure_airport) AS rank
+        FROM dwh_detailed.sat_tickets t
+        JOIN dwh_detailed.link_ticket_flights ltf 
+            ON t.hub_ticket_id = ltf.hub_ticket_id
+        JOIN dwh_detailed.sat_flights f 
+            ON ltf.hub_flight_id = f.hub_flight_id
+        GROUP BY t.passenger_id, f.departure_airport
+    ),
+    gmv AS (
+        SELECT
+            passenger_id,
+            purchase_sum,
+            PERCENT_RANK() OVER (ORDER BY purchase_sum DESC) AS gmv_percentile
+        FROM stats_passenger
+    )
+    DELETE FROM presentation.frequent_flyers
+    WHERE created_at < NOW() - INTERVAL '1 day';
+
+    INSERT INTO presentation.frequent_flyers (
+        passenger_id, passenger_name, flights_number, purchase_sum, home_airport, customer_group
+    )
+    SELECT
+        ps.passenger_id, 
+        ps.passenger_name, 
+        ps.flights_number, 
+        ps.purchase_sum, 
+        a.airport_code AS home_airport,
+        CASE
+            WHEN gmv_percentile <= 0.05 THEN '5'
+            WHEN gmv_percentile <= 0.1 THEN '10'
+            WHEN gmv_percentile <= 0.25 THEN '25'
+            WHEN gmv_percentile <= 0.5 THEN '50'
+            ELSE '50+'
+        END AS customer_group
+    FROM stats_passenger ps
+    LEFT JOIN stats_airport a 
+        ON ps.passenger_id = a.passenger_id AND a.rank = 1
+    LEFT JOIN gmv g 
+        ON ps.passenger_id = g.passenger_id;, parameters: None
+[2025-03-16T20:04:04.007+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/operators/sql.py", line 280, in execute
+    output = hook.run(
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 392, in run
+    self._run_command(cur, sql_statement, parameters)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/providers/common/sql/hooks/sql.py", line 423, in _run_command
+    cur.execute(sql_statement)
+psycopg2.errors.UndefinedTable: relation "stats_passenger" does not exist
+LINE 58:     FROM stats_passenger ps
+                  ^
+
+[2025-03-16T20:04:04.015+0000] {taskinstance.py:1398} INFO - Marking task as UP_FOR_RETRY. dag_id=frequent_flyers, task_id=insert_data, execution_date=20250315T000000, start_date=20250316T200403, end_date=20250316T200404
+[2025-03-16T20:04:04.022+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 9 for task insert_data (relation "stats_passenger" does not exist
+LINE 58:     FROM stats_passenger ps
+                  ^
+; 214)
+[2025-03-16T20:04:04.051+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-03-16T20:04:04.065+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-16T20:12:27.997+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: frequent_flyers.insert_data scheduled__2025-03-15T00:00:00+00:00 [queued]>
+[2025-03-16T20:12:28.003+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: frequent_flyers.insert_data scheduled__2025-03-15T00:00:00+00:00 [queued]>
+[2025-03-16T20:12:28.003+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-03-16T20:12:28.009+0000] {taskinstance.py:1380} INFO - Executing <Task(PostgresOperator): insert_data> on 2025-03-15 00:00:00+00:00
+[2025-03-16T20:12:28.012+0000] {standard_task_runner.py:57} INFO - Started process 208 to run task
+[2025-03-16T20:12:28.013+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'frequent_flyers', 'insert_data', 'scheduled__2025-03-15T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/frequent_flyers.py', '--cfg-path', '/tmp/tmpvfckmg9r']
+[2025-03-16T20:12:28.015+0000] {standard_task_runner.py:85} INFO - Job 11: Subtask insert_data
+[2025-03-16T20:12:28.026+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-03-16T20:12:28.050+0000] {task_command.py:415} INFO - Running <TaskInstance: frequent_flyers.insert_data scheduled__2025-03-15T00:00:00+00:00 [running]> on host b70acf7f0e92
+[2025-03-16T20:12:28.100+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='frequent_flyers' AIRFLOW_CTX_TASK_ID='insert_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-15T00:00:00+00:00'
+[2025-03-16T20:12:28.101+0000] {sql.py:274} INFO - Executing: 
+WITH stats_passenger AS (
+    SELECT
+        t.passenger_id,
+        t.passenger_name,
+        COUNT(*) AS flights_number,
+        SUM(b.total_amount) AS purchase_sum
+    FROM dwh_detailed.sat_tickets t
+    JOIN dwh_detailed.hub_bookings hb 
+        ON t.book_ref = hb.book_ref
+    JOIN dwh_detailed.sat_bookings b 
+        ON hb.hub_booking_id = b.hub_booking_id
+    JOIN dwh_detailed.link_ticket_flights ltf 
+        ON t.hub_ticket_id = ltf.hub_ticket_id
+    JOIN dwh_detailed.sat_flights f 
+        ON ltf.hub_flight_id = f.hub_flight_id
+    GROUP BY t.passenger_id, t.passenger_name
+),
+stats_airport AS (
+    SELECT
+        t.passenger_id,
+        f.departure_airport AS airport_code,
+        COUNT(*) AS flight_count,
+        ROW_NUMBER() OVER (PARTITION BY t.passenger_id ORDER BY COUNT(*) DESC, f.departure_airport) AS rank
+    FROM dwh_detailed.sat_tickets t
+    JOIN dwh_detailed.link_ticket_flights ltf 
+        ON t.hub_ticket_id = ltf.hub_ticket_id
+    JOIN dwh_detailed.sat_flights f 
+        ON ltf.hub_flight_id = f.hub_flight_id
+    GROUP BY t.passenger_id, f.departure_airport
+),
+gmv AS (
+    SELECT
+        passenger_id,
+        purchase_sum,
+        PERCENT_RANK() OVER (ORDER BY purchase_sum DESC) AS gmv_percentile
+    FROM stats_passenger
+)
+INSERT INTO presentation.frequent_flyers (
+    passenger_id, passenger_name, flights_number, purchase_sum, home_airport, customer_group
+)
+SELECT
+    ps.passenger_id, 
+    ps.passenger_name, 
+    ps.flights_number, 
+    ps.purchase_sum, 
+    a.airport_code AS home_airport,
+    CASE
+        WHEN gmv_percentile <= 0.05 THEN '5'
+        WHEN gmv_percentile <= 0.1 THEN '10'
+        WHEN gmv_percentile <= 0.25 THEN '25'
+        WHEN gmv_percentile <= 0.5 THEN '50'
+        ELSE '50+'
+    END AS customer_group
+FROM stats_passenger ps
+LEFT JOIN stats_airport a
+    ON ps.passenger_id = a.passenger_id AND a.rank = 1
+LEFT JOIN gmv g
+    ON ps.passenger_id = g.passenger_id;
+[2025-03-16T20:12:28.106+0000] {base.py:73} INFO - Using connection ID '***_dwh' for task execution.
+[2025-03-16T20:12:28.113+0000] {base.py:73} INFO - Using connection ID '***_dwh' for task execution.
+[2025-03-16T20:12:28.117+0000] {sql.py:418} INFO - Running statement: 
+WITH stats_passenger AS (
+    SELECT
+        t.passenger_id,
+        t.passenger_name,
+        COUNT(*) AS flights_number,
+        SUM(b.total_amount) AS purchase_sum
+    FROM dwh_detailed.sat_tickets t
+    JOIN dwh_detailed.hub_bookings hb 
+        ON t.book_ref = hb.book_ref
+    JOIN dwh_detailed.sat_bookings b 
+        ON hb.hub_booking_id = b.hub_booking_id
+    JOIN dwh_detailed.link_ticket_flights ltf 
+        ON t.hub_ticket_id = ltf.hub_ticket_id
+    JOIN dwh_detailed.sat_flights f 
+        ON ltf.hub_flight_id = f.hub_flight_id
+    GROUP BY t.passenger_id, t.passenger_name
+),
+stats_airport AS (
+    SELECT
+        t.passenger_id,
+        f.departure_airport AS airport_code,
+        COUNT(*) AS flight_count,
+        ROW_NUMBER() OVER (PARTITION BY t.passenger_id ORDER BY COUNT(*) DESC, f.departure_airport) AS rank
+    FROM dwh_detailed.sat_tickets t
+    JOIN dwh_detailed.link_ticket_flights ltf 
+        ON t.hub_ticket_id = ltf.hub_ticket_id
+    JOIN dwh_detailed.sat_flights f 
+        ON ltf.hub_flight_id = f.hub_flight_id
+    GROUP BY t.passenger_id, f.departure_airport
+),
+gmv AS (
+    SELECT
+        passenger_id,
+        purchase_sum,
+        PERCENT_RANK() OVER (ORDER BY purchase_sum DESC) AS gmv_percentile
+    FROM stats_passenger
+)
+INSERT INTO presentation.frequent_flyers (
+    passenger_id, passenger_name, flights_number, purchase_sum, home_airport, customer_group
+)
+SELECT
+    ps.passenger_id, 
+    ps.passenger_name, 
+    ps.flights_number, 
+    ps.purchase_sum, 
+    a.airport_code AS home_airport,
+    CASE
+        WHEN gmv_percentile <= 0.05 THEN '5'
+        WHEN gmv_percentile <= 0.1 THEN '10'
+        WHEN gmv_percentile <= 0.25 THEN '25'
+        WHEN gmv_percentile <= 0.5 THEN '50'
+        ELSE '50+'
+    END AS customer_group
+FROM stats_passenger ps
+LEFT JOIN stats_airport a
+    ON ps.passenger_id = a.passenger_id AND a.rank = 1
+LEFT JOIN gmv g
+    ON ps.passenger_id = g.passenger_id;, parameters: None
+[2025-03-16T20:12:28.125+0000] {sql.py:427} INFO - Rows affected: 0
+[2025-03-16T20:12:28.132+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=frequent_flyers, task_id=insert_data, execution_date=20250315T000000, start_date=20250316T201227, end_date=20250316T201228
+[2025-03-16T20:12:28.154+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-16T20:12:28.166+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-03-16T20:25:16.145+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: frequent_flyers.insert_data scheduled__2025-03-15T00:00:00+00:00 [queued]>
+[2025-03-16T20:25:16.150+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: frequent_flyers.insert_data scheduled__2025-03-15T00:00:00+00:00 [queued]>
+[2025-03-16T20:25:16.150+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-03-16T20:25:16.157+0000] {taskinstance.py:1380} INFO - Executing <Task(PostgresOperator): insert_data> on 2025-03-15 00:00:00+00:00
+[2025-03-16T20:25:16.159+0000] {standard_task_runner.py:57} INFO - Started process 237 to run task
+[2025-03-16T20:25:16.161+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'frequent_flyers', 'insert_data', 'scheduled__2025-03-15T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/frequent_flyers.py', '--cfg-path', '/tmp/tmpo4q2juu7']
+[2025-03-16T20:25:16.163+0000] {standard_task_runner.py:85} INFO - Job 11: Subtask insert_data
+[2025-03-16T20:25:16.173+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-03-16T20:25:16.197+0000] {task_command.py:415} INFO - Running <TaskInstance: frequent_flyers.insert_data scheduled__2025-03-15T00:00:00+00:00 [running]> on host 711ad4f92c48
+[2025-03-16T20:25:16.248+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='frequent_flyers' AIRFLOW_CTX_TASK_ID='insert_data' AIRFLOW_CTX_EXECUTION_DATE='2025-03-15T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-15T00:00:00+00:00'
+[2025-03-16T20:25:16.248+0000] {sql.py:274} INFO - Executing: 
+WITH stats_passenger AS (
+    SELECT
+        t.passenger_id,
+        t.passenger_name,
+        COUNT(*) AS flights_number,
+        SUM(b.total_amount) AS purchase_sum
+    FROM dwh_detailed.sat_tickets t
+    JOIN dwh_detailed.hub_bookings hb 
+        ON t.book_ref = hb.book_ref
+    JOIN dwh_detailed.sat_bookings b 
+        ON hb.hub_booking_id = b.hub_booking_id
+    JOIN dwh_detailed.link_ticket_flights ltf 
+        ON t.hub_ticket_id = ltf.hub_ticket_id
+    JOIN dwh_detailed.sat_flights f 
+        ON ltf.hub_flight_id = f.hub_flight_id
+    GROUP BY t.passenger_id, t.passenger_name
+),
+stats_airport AS (
+    SELECT
+        t.passenger_id,
+        f.departure_airport AS airport_code,
+        COUNT(*) AS flight_count,
+        ROW_NUMBER() OVER (PARTITION BY t.passenger_id ORDER BY COUNT(*) DESC, f.departure_airport) AS rank
+    FROM dwh_detailed.sat_tickets t
+    JOIN dwh_detailed.link_ticket_flights ltf 
+        ON t.hub_ticket_id = ltf.hub_ticket_id
+    JOIN dwh_detailed.sat_flights f 
+        ON ltf.hub_flight_id = f.hub_flight_id
+    GROUP BY t.passenger_id, f.departure_airport
+),
+gmv AS (
+    SELECT
+        passenger_id,
+        purchase_sum,
+        PERCENT_RANK() OVER (ORDER BY purchase_sum DESC) AS gmv_percentile
+    FROM stats_passenger
+)
+INSERT INTO presentation.frequent_flyers (
+    passenger_id, passenger_name, flights_number, purchase_sum, home_airport, customer_group
+)
+SELECT
+    ps.passenger_id, 
+    ps.passenger_name, 
+    ps.flights_number, 
+    ps.purchase_sum, 
+    a.airport_code AS home_airport,
+    CASE
+        WHEN gmv_percentile <= 0.05 THEN '5'
+        WHEN gmv_percentile <= 0.1 THEN '10'
+        WHEN gmv_percentile <= 0.25 THEN '25'
+        WHEN gmv_percentile <= 0.5 THEN '50'
+        ELSE '50+'
+    END AS customer_group
+FROM stats_passenger ps
+LEFT JOIN stats_airport a
+    ON ps.passenger_id = a.passenger_id AND a.rank = 1
+LEFT JOIN gmv g
+    ON ps.passenger_id = g.passenger_id;
+[2025-03-16T20:25:16.254+0000] {base.py:73} INFO - Using connection ID '***_dwh' for task execution.
+[2025-03-16T20:25:16.262+0000] {base.py:73} INFO - Using connection ID '***_dwh' for task execution.
+[2025-03-16T20:25:16.266+0000] {sql.py:418} INFO - Running statement: 
+WITH stats_passenger AS (
+    SELECT
+        t.passenger_id,
+        t.passenger_name,
+        COUNT(*) AS flights_number,
+        SUM(b.total_amount) AS purchase_sum
+    FROM dwh_detailed.sat_tickets t
+    JOIN dwh_detailed.hub_bookings hb 
+        ON t.book_ref = hb.book_ref
+    JOIN dwh_detailed.sat_bookings b 
+        ON hb.hub_booking_id = b.hub_booking_id
+    JOIN dwh_detailed.link_ticket_flights ltf 
+        ON t.hub_ticket_id = ltf.hub_ticket_id
+    JOIN dwh_detailed.sat_flights f 
+        ON ltf.hub_flight_id = f.hub_flight_id
+    GROUP BY t.passenger_id, t.passenger_name
+),
+stats_airport AS (
+    SELECT
+        t.passenger_id,
+        f.departure_airport AS airport_code,
+        COUNT(*) AS flight_count,
+        ROW_NUMBER() OVER (PARTITION BY t.passenger_id ORDER BY COUNT(*) DESC, f.departure_airport) AS rank
+    FROM dwh_detailed.sat_tickets t
+    JOIN dwh_detailed.link_ticket_flights ltf 
+        ON t.hub_ticket_id = ltf.hub_ticket_id
+    JOIN dwh_detailed.sat_flights f 
+        ON ltf.hub_flight_id = f.hub_flight_id
+    GROUP BY t.passenger_id, f.departure_airport
+),
+gmv AS (
+    SELECT
+        passenger_id,
+        purchase_sum,
+        PERCENT_RANK() OVER (ORDER BY purchase_sum DESC) AS gmv_percentile
+    FROM stats_passenger
+)
+INSERT INTO presentation.frequent_flyers (
+    passenger_id, passenger_name, flights_number, purchase_sum, home_airport, customer_group
+)
+SELECT
+    ps.passenger_id, 
+    ps.passenger_name, 
+    ps.flights_number, 
+    ps.purchase_sum, 
+    a.airport_code AS home_airport,
+    CASE
+        WHEN gmv_percentile <= 0.05 THEN '5'
+        WHEN gmv_percentile <= 0.1 THEN '10'
+        WHEN gmv_percentile <= 0.25 THEN '25'
+        WHEN gmv_percentile <= 0.5 THEN '50'
+        ELSE '50+'
+    END AS customer_group
+FROM stats_passenger ps
+LEFT JOIN stats_airport a
+    ON ps.passenger_id = a.passenger_id AND a.rank = 1
+LEFT JOIN gmv g
+    ON ps.passenger_id = g.passenger_id;, parameters: None
+[2025-03-16T20:25:16.273+0000] {sql.py:427} INFO - Rows affected: 14
+[2025-03-16T20:25:16.280+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=frequent_flyers, task_id=insert_data, execution_date=20250315T000000, start_date=20250316T202516, end_date=20250316T202516
+[2025-03-16T20:25:16.302+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-16T20:25:16.317+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

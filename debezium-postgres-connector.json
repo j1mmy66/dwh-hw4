@@ -1,0 +1,19 @@
+{
+  "name": "postgres-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "database.hostname": "postgres_master",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "postgres",
+    "database.dbname": "postgres",
+    "database.server.name": "masterdb",
+    "plugin.name": "pgoutput",
+    "slot.name": "replication_slot_debezium",
+    "publication.autocreate.mode": "all_tables",
+    "table.include.list": "public.airports,public.aircrafts,public.seats,public.flights,public.bookings,public.tickets,public.ticket_flights,public.boarding_passes",
+    "slot.drop.on.stop": "false",
+    "topic.prefix": "masterdb",
+    "decimal.handling.mode": "string"
+  }
+}

@@ -1,0 +1,82 @@
+[2025-03-25T14:33:22.993+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: passanger_traffic.creare2 scheduled__2025-03-24T03:00:00+00:00 [queued]>
+[2025-03-25T14:33:23.008+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: passanger_traffic.creare2 scheduled__2025-03-24T03:00:00+00:00 [queued]>
+[2025-03-25T14:33:23.009+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-03-25T14:33:23.030+0000] {taskinstance.py:1380} INFO - Executing <Task(PostgresOperator): creare2> on 2025-03-24 03:00:00+00:00
+[2025-03-25T14:33:23.038+0000] {standard_task_runner.py:57} INFO - Started process 458 to run task
+[2025-03-25T14:33:23.044+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'passanger_traffic', 'creare2', 'scheduled__2025-03-24T03:00:00+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/passenger_traffic_dag.py', '--cfg-path', '/tmp/tmp_ybqkg_p']
+[2025-03-25T14:33:23.048+0000] {standard_task_runner.py:85} INFO - Job 17: Subtask creare2
+[2025-03-25T14:33:23.076+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-03-25T14:33:23.198+0000] {task_command.py:415} INFO - Running <TaskInstance: passanger_traffic.creare2 scheduled__2025-03-24T03:00:00+00:00 [running]> on host 55005b7b65eb
+[2025-03-25T14:33:23.444+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='passanger_traffic' AIRFLOW_CTX_TASK_ID='creare2' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-24T03:00:00+00:00'
+[2025-03-25T14:33:23.446+0000] {sql.py:274} INFO - Executing: 
+    DROP TABLE IF EXISTS presentation.passenger_traffic;
+
+
+    CREATE TABLE IF NOT EXISTS presentation.passenger_traffic (
+         created_at timestamp,
+         flight_date date,
+         airport_code char(3),
+         linked_airport_code char(3),
+         flights_in integer,
+         flights_out integer,
+         passengers_in integer,
+         passengers_out integer);
+[2025-03-25T14:33:23.474+0000] {base.py:73} INFO - Using connection ID '***_dwh' for task execution.
+[2025-03-25T14:33:23.498+0000] {base.py:73} INFO - Using connection ID '***_dwh' for task execution.
+[2025-03-25T14:33:23.518+0000] {sql.py:418} INFO - Running statement: 
+    DROP TABLE IF EXISTS presentation.passenger_traffic;
+
+
+    CREATE TABLE IF NOT EXISTS presentation.passenger_traffic (
+         created_at timestamp,
+         flight_date date,
+         airport_code char(3),
+         linked_airport_code char(3),
+         flights_in integer,
+         flights_out integer,
+         passengers_in integer,
+         passengers_out integer);, parameters: None
+[2025-03-25T14:33:23.585+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=passanger_traffic, task_id=creare2, execution_date=20250324T030000, start_date=20250325T143322, end_date=20250325T143323
+[2025-03-25T14:33:23.636+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-25T14:33:23.681+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-03-25T15:13:03.870+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: passanger_traffic.creare2 scheduled__2025-03-24T03:00:00+00:00 [queued]>
+[2025-03-25T15:13:03.899+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: passanger_traffic.creare2 scheduled__2025-03-24T03:00:00+00:00 [queued]>
+[2025-03-25T15:13:03.902+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-03-25T15:13:03.935+0000] {taskinstance.py:1380} INFO - Executing <Task(PostgresOperator): creare2> on 2025-03-24 03:00:00+00:00
+[2025-03-25T15:13:03.994+0000] {standard_task_runner.py:57} INFO - Started process 241 to run task
+[2025-03-25T15:13:04.001+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'passanger_traffic', 'creare2', 'scheduled__2025-03-24T03:00:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/passenger_traffic_dag.py', '--cfg-path', '/tmp/tmpj950xeko']
+[2025-03-25T15:13:04.009+0000] {standard_task_runner.py:85} INFO - Job 9: Subtask creare2
+[2025-03-25T15:13:04.052+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-03-25T15:13:04.146+0000] {task_command.py:415} INFO - Running <TaskInstance: passanger_traffic.creare2 scheduled__2025-03-24T03:00:00+00:00 [running]> on host f489f841bffe
+[2025-03-25T15:13:04.321+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='passanger_traffic' AIRFLOW_CTX_TASK_ID='creare2' AIRFLOW_CTX_EXECUTION_DATE='2025-03-24T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-03-24T03:00:00+00:00'
+[2025-03-25T15:13:04.323+0000] {sql.py:274} INFO - Executing: 
+    DROP TABLE IF EXISTS presentation.passenger_traffic;
+
+
+    CREATE TABLE IF NOT EXISTS presentation.passenger_traffic (
+         created_at timestamp,
+         flight_date date,
+         airport_code char(3),
+         linked_airport_code char(3),
+         flights_in integer,
+         flights_out integer,
+         passengers_in integer,
+         passengers_out integer);
+[2025-03-25T15:13:04.339+0000] {base.py:73} INFO - Using connection ID '***_dwh' for task execution.
+[2025-03-25T15:13:04.357+0000] {base.py:73} INFO - Using connection ID '***_dwh' for task execution.
+[2025-03-25T15:13:04.374+0000] {sql.py:418} INFO - Running statement: 
+    DROP TABLE IF EXISTS presentation.passenger_traffic;
+
+
+    CREATE TABLE IF NOT EXISTS presentation.passenger_traffic (
+         created_at timestamp,
+         flight_date date,
+         airport_code char(3),
+         linked_airport_code char(3),
+         flights_in integer,
+         flights_out integer,
+         passengers_in integer,
+         passengers_out integer);, parameters: None
+[2025-03-25T15:13:04.409+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=passanger_traffic, task_id=creare2, execution_date=20250324T030000, start_date=20250325T151303, end_date=20250325T151304
+[2025-03-25T15:13:04.467+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-25T15:13:04.522+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

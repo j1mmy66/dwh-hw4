@@ -1,0 +1,251 @@
+[2025-03-16T20:03:01.175+0000] {processor.py:157} INFO - Started process (PID=169) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:03:01.176+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:03:01.177+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:03:01.176+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:03:01.194+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:03:01.447+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:03:01.447+0000] {manager.py:499} INFO - Created Permission View: %s
+[2025-03-16T20:03:01.452+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:03:01.451+0000] {manager.py:499} INFO - Created Permission View: %s
+[2025-03-16T20:03:01.454+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:03:01.454+0000] {manager.py:499} INFO - Created Permission View: %s
+[2025-03-16T20:03:01.455+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:03:01.454+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:frequent_flyers' as access control is unset.
+[2025-03-16T20:03:01.455+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:03:01.455+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:03:01.461+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:03:01.461+0000] {dag.py:2937} INFO - Creating ORM DAG for frequent_flyers
+[2025-03-16T20:03:01.467+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:03:01.467+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-15T00:00:00+00:00, run_after=2025-03-16T00:00:00+00:00
+[2025-03-16T20:03:01.478+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.304 seconds
+[2025-03-16T20:03:31.737+0000] {processor.py:157} INFO - Started process (PID=179) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:03:31.739+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:03:31.741+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:03:31.740+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:03:31.757+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:03:31.783+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:03:31.783+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:03:31.802+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:03:31.802+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-15T00:00:00+00:00, run_after=2025-03-16T00:00:00+00:00
+[2025-03-16T20:03:31.920+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.189 seconds
+[2025-03-16T20:04:02.044+0000] {processor.py:157} INFO - Started process (PID=199) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:04:02.045+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:04:02.046+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:04:02.046+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:04:02.060+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:04:02.083+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:04:02.082+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:04:02.184+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.144 seconds
+[2025-03-16T20:04:32.336+0000] {processor.py:157} INFO - Started process (PID=215) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:04:32.337+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:04:32.338+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:04:32.337+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:04:32.349+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:04:32.380+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:04:32.380+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:04:32.486+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.152 seconds
+[2025-03-16T20:05:02.771+0000] {processor.py:157} INFO - Started process (PID=225) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:05:02.772+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:05:02.773+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:05:02.773+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:05:02.787+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:05:02.889+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:05:02.889+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:05:02.913+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.146 seconds
+[2025-03-16T20:05:33.121+0000] {processor.py:157} INFO - Started process (PID=241) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:05:33.122+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:05:33.123+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:05:33.123+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:05:33.227+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:05:33.248+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:05:33.248+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:05:33.270+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.153 seconds
+[2025-03-16T20:06:03.590+0000] {processor.py:157} INFO - Started process (PID=251) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:06:03.592+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:06:03.593+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:06:03.592+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:06:03.606+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:06:03.628+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:06:03.628+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:06:03.655+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.070 seconds
+[2025-03-16T20:06:33.969+0000] {processor.py:157} INFO - Started process (PID=263) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:06:33.970+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:06:33.971+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:06:33.970+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:06:33.980+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:06:34.001+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:06:34.001+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:06:34.018+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:06:34.018+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:06:34.030+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.063 seconds
+[2025-03-16T20:11:30.210+0000] {processor.py:157} INFO - Started process (PID=169) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:11:30.211+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:11:30.212+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:11:30.211+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:11:30.233+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:11:30.462+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:11:30.462+0000] {manager.py:499} INFO - Created Permission View: %s
+[2025-03-16T20:11:30.467+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:11:30.467+0000] {manager.py:499} INFO - Created Permission View: %s
+[2025-03-16T20:11:30.470+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:11:30.470+0000] {manager.py:499} INFO - Created Permission View: %s
+[2025-03-16T20:11:30.471+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:11:30.470+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:frequent_flyers' as access control is unset.
+[2025-03-16T20:11:30.471+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:11:30.471+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:11:30.477+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:11:30.477+0000] {dag.py:2937} INFO - Creating ORM DAG for frequent_flyers
+[2025-03-16T20:11:30.483+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:11:30.483+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-15T00:00:00+00:00, run_after=2025-03-16T00:00:00+00:00
+[2025-03-16T20:11:30.492+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.285 seconds
+[2025-03-16T20:12:00.798+0000] {processor.py:157} INFO - Started process (PID=179) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:12:00.800+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:12:00.801+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:12:00.800+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:12:00.816+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:12:00.841+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:12:00.841+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:12:00.859+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:12:00.859+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-15T00:00:00+00:00, run_after=2025-03-16T00:00:00+00:00
+[2025-03-16T20:12:00.973+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.180 seconds
+[2025-03-16T20:12:31.052+0000] {processor.py:157} INFO - Started process (PID=211) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:12:31.052+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:12:31.053+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:12:31.053+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:12:31.062+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:12:31.084+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:12:31.083+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:12:31.194+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.145 seconds
+[2025-03-16T20:13:01.364+0000] {processor.py:157} INFO - Started process (PID=227) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:13:01.365+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:13:01.365+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:13:01.365+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:13:01.375+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:13:01.397+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:13:01.397+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:13:01.492+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:13:01.492+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:13:01.502+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.140 seconds
+[2025-03-16T20:13:31.803+0000] {processor.py:157} INFO - Started process (PID=237) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:13:31.804+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:13:31.805+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:13:31.805+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:13:31.821+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:13:31.932+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:13:31.932+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:13:31.944+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:13:31.944+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:13:31.954+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.153 seconds
+[2025-03-16T20:14:02.164+0000] {processor.py:157} INFO - Started process (PID=247) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:14:02.165+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:14:02.166+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:14:02.165+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:14:02.259+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:14:02.275+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:14:02.275+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:14:02.287+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:14:02.287+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:14:02.299+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.138 seconds
+[2025-03-16T20:14:32.718+0000] {processor.py:157} INFO - Started process (PID=257) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:14:32.718+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:14:32.719+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:14:32.719+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:14:32.729+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:14:32.760+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:14:32.759+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:14:32.773+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:14:32.773+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:14:32.784+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.068 seconds
+[2025-03-16T20:15:03.107+0000] {processor.py:157} INFO - Started process (PID=267) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:15:03.108+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:15:03.110+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:15:03.109+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:15:03.130+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:15:03.153+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:15:03.153+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:15:03.168+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:15:03.168+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:15:03.179+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.077 seconds
+[2025-03-16T20:15:33.531+0000] {processor.py:157} INFO - Started process (PID=277) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:15:33.532+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:15:33.534+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:15:33.533+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:15:33.550+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:15:33.573+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:15:33.573+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:15:33.588+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:15:33.588+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:15:33.599+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.072 seconds
+[2025-03-16T20:16:03.978+0000] {processor.py:157} INFO - Started process (PID=287) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:16:03.979+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:16:03.980+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:16:03.980+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:16:03.992+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:16:04.016+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:16:04.016+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:16:04.032+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:16:04.032+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:16:04.044+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.069 seconds
+[2025-03-16T20:16:34.427+0000] {processor.py:157} INFO - Started process (PID=297) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:16:34.428+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:16:34.429+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:16:34.429+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:16:34.443+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:16:34.465+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:16:34.465+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:16:34.480+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:16:34.479+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:16:34.490+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.067 seconds
+[2025-03-16T20:17:04.818+0000] {processor.py:157} INFO - Started process (PID=307) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:17:04.819+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:17:04.820+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:17:04.820+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:17:04.834+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:17:04.856+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:17:04.856+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:17:04.872+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:17:04.872+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:17:04.884+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.070 seconds
+[2025-03-16T20:17:35.215+0000] {processor.py:157} INFO - Started process (PID=317) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:17:35.217+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:17:35.219+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:17:35.219+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:17:35.232+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:17:35.258+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:17:35.258+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:17:35.273+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:17:35.273+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:17:35.285+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.075 seconds
+[2025-03-16T20:18:05.586+0000] {processor.py:157} INFO - Started process (PID=327) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:18:05.587+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:18:05.588+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:18:05.587+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:18:05.601+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:18:05.626+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:18:05.626+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:18:05.640+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:18:05.640+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:18:05.650+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.067 seconds
+[2025-03-16T20:18:35.959+0000] {processor.py:157} INFO - Started process (PID=337) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:18:35.960+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:18:35.961+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:18:35.961+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:18:35.972+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:18:35.992+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:18:35.992+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:18:36.007+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:18:36.007+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:18:36.018+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.062 seconds
+[2025-03-16T20:22:50.552+0000] {processor.py:157} INFO - Started process (PID=168) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:22:50.553+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:22:50.554+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:22:50.554+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:22:50.573+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:22:50.813+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:22:50.813+0000] {manager.py:499} INFO - Created Permission View: %s
+[2025-03-16T20:22:50.818+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:22:50.818+0000] {manager.py:499} INFO - Created Permission View: %s
+[2025-03-16T20:22:50.821+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:22:50.821+0000] {manager.py:499} INFO - Created Permission View: %s
+[2025-03-16T20:22:50.821+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:22:50.821+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:frequent_flyers' as access control is unset.
+[2025-03-16T20:22:50.821+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:22:50.821+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:22:50.827+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:22:50.827+0000] {dag.py:2937} INFO - Creating ORM DAG for frequent_flyers
+[2025-03-16T20:22:50.833+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:22:50.833+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-15T00:00:00+00:00, run_after=2025-03-16T00:00:00+00:00
+[2025-03-16T20:22:50.845+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.296 seconds
+[2025-03-16T20:23:21.161+0000] {processor.py:157} INFO - Started process (PID=178) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:23:21.162+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:23:21.164+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:23:21.163+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:23:21.175+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:23:21.201+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:23:21.200+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:23:21.216+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:23:21.216+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-15T00:00:00+00:00, run_after=2025-03-16T00:00:00+00:00
+[2025-03-16T20:23:21.315+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.158 seconds
+[2025-03-16T20:23:51.625+0000] {processor.py:157} INFO - Started process (PID=188) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:23:51.626+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:23:51.627+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:23:51.627+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:23:51.642+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:23:51.665+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:23:51.664+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:23:51.773+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:23:51.773+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-15T00:00:00+00:00, run_after=2025-03-16T00:00:00+00:00
+[2025-03-16T20:23:51.784+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.164 seconds
+[2025-03-16T20:24:21.959+0000] {processor.py:157} INFO - Started process (PID=198) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:24:21.960+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:24:21.961+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:24:21.961+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:24:21.973+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:24:22.000+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:24:22.000+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:24:22.115+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:24:22.114+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-15T00:00:00+00:00, run_after=2025-03-16T00:00:00+00:00
+[2025-03-16T20:24:22.125+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.171 seconds
+[2025-03-16T20:24:52.427+0000] {processor.py:157} INFO - Started process (PID=208) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:24:52.428+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:24:52.429+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:24:52.428+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:24:52.439+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:24:52.563+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:24:52.563+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:24:52.577+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:24:52.576+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-15T00:00:00+00:00, run_after=2025-03-16T00:00:00+00:00
+[2025-03-16T20:24:52.587+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.164 seconds
+[2025-03-16T20:25:22.691+0000] {processor.py:157} INFO - Started process (PID=244) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:25:22.692+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:25:22.693+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:25:22.693+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:25:22.801+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:25:22.817+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:25:22.817+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:25:22.838+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.152 seconds
+[2025-03-16T20:25:53.171+0000] {processor.py:157} INFO - Started process (PID=256) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:25:53.173+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:25:53.174+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:25:53.174+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:25:53.184+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:25:53.214+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:25:53.214+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:25:53.239+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.070 seconds
+[2025-03-16T20:26:23.417+0000] {processor.py:157} INFO - Started process (PID=266) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:26:23.417+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:26:23.419+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:26:23.419+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:26:23.431+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:26:23.456+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:26:23.455+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:26:23.479+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.065 seconds
+[2025-03-16T20:26:53.819+0000] {processor.py:157} INFO - Started process (PID=278) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:26:53.820+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:26:53.821+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:26:53.821+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:26:53.835+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:26:53.857+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:26:53.857+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:26:53.873+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:26:53.873+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:26:53.884+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.069 seconds
+[2025-03-16T20:27:24.189+0000] {processor.py:157} INFO - Started process (PID=288) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:27:24.189+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:27:24.190+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:27:24.190+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:27:24.200+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:27:24.221+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:27:24.221+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:27:24.236+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:27:24.236+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:27:24.246+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.061 seconds
+[2025-03-16T20:27:54.562+0000] {processor.py:157} INFO - Started process (PID=298) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:27:54.563+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:27:54.564+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:27:54.563+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:27:54.575+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:27:54.597+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:27:54.597+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:27:54.612+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:27:54.612+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:27:54.626+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.067 seconds
+[2025-03-16T20:28:24.956+0000] {processor.py:157} INFO - Started process (PID=308) to work on /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:28:24.957+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/frequent_flyers.py for tasks to queue
+[2025-03-16T20:28:24.958+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:28:24.958+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:28:24.970+0000] {processor.py:839} INFO - DAG(s) dict_keys(['frequent_flyers']) retrieved from /opt/airflow/dags/frequent_flyers.py
+[2025-03-16T20:28:24.993+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:28:24.993+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-03-16T20:28:25.011+0000] {logging_mixin.py:151} INFO - [2025-03-16T20:28:25.011+0000] {dag.py:3696} INFO - Setting next_dagrun for frequent_flyers to 2025-03-16T00:00:00+00:00, run_after=2025-03-17T00:00:00+00:00
+[2025-03-16T20:28:25.025+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/frequent_flyers.py took 0.072 seconds

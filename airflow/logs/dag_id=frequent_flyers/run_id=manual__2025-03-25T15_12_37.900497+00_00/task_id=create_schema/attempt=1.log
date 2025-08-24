@@ -1,0 +1,19 @@
+[2025-03-25T15:12:53.215+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: frequent_flyers.create_schema manual__2025-03-25T15:12:37.900497+00:00 [queued]>
+[2025-03-25T15:12:53.235+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: frequent_flyers.create_schema manual__2025-03-25T15:12:37.900497+00:00 [queued]>
+[2025-03-25T15:12:53.236+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-03-25T15:12:53.256+0000] {taskinstance.py:1380} INFO - Executing <Task(PostgresOperator): create_schema> on 2025-03-25 15:12:37.900497+00:00
+[2025-03-25T15:12:53.278+0000] {standard_task_runner.py:57} INFO - Started process 223 to run task
+[2025-03-25T15:12:53.290+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'frequent_flyers', 'create_schema', 'manual__2025-03-25T15:12:37.900497+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/frequent_flyers.py', '--cfg-path', '/tmp/tmp6owowmb_']
+[2025-03-25T15:12:53.294+0000] {standard_task_runner.py:85} INFO - Job 5: Subtask create_schema
+[2025-03-25T15:12:53.328+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/***/settings.py:195 DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+[2025-03-25T15:12:53.404+0000] {task_command.py:415} INFO - Running <TaskInstance: frequent_flyers.create_schema manual__2025-03-25T15:12:37.900497+00:00 [running]> on host f489f841bffe
+[2025-03-25T15:12:53.629+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='frequent_flyers' AIRFLOW_CTX_TASK_ID='create_schema' AIRFLOW_CTX_EXECUTION_DATE='2025-03-25T15:12:37.900497+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-03-25T15:12:37.900497+00:00'
+[2025-03-25T15:12:53.632+0000] {sql.py:274} INFO - Executing: 
+CREATE SCHEMA IF NOT EXISTS presentation;
+[2025-03-25T15:12:53.652+0000] {base.py:73} INFO - Using connection ID '***_dwh' for task execution.
+[2025-03-25T15:12:53.669+0000] {base.py:73} INFO - Using connection ID '***_dwh' for task execution.
+[2025-03-25T15:12:53.684+0000] {sql.py:418} INFO - Running statement: 
+CREATE SCHEMA IF NOT EXISTS presentation;, parameters: None
+[2025-03-25T15:12:53.707+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=frequent_flyers, task_id=create_schema, execution_date=20250325T151237, start_date=20250325T151253, end_date=20250325T151253
+[2025-03-25T15:12:53.749+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-03-25T15:12:53.812+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
