@@ -6,3 +6,4 @@
 - Выполнить ./docker-init.sh
 - Зайти в localhost:3000, подключиться к postgres_dwh и создать дэшборды.
 - Дэшборды можно посмотреть в двух файлах `passenger-dash.mov` и `airports-dash.mp4`
+- [hw4.pdf](https://github.com/user-attachments/files/21953786/hw4.pdf)
